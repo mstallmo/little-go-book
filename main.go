@@ -7,12 +7,19 @@ type Saiyan struct {
 	Power int
 }
 
+func NewSaiyan(name string, power int) *Saiyan {
+	return &Saiyan{
+		Name:  name,
+		Power: power,
+	}
+}
+
 func (s *Saiyan) Super() {
 	s.Power += 10000
 }
 
 func main() {
-	goku := &Saiyan{"Goku", 9001}
+	goku := NewSaiyan("goku", 9000)
 	goku.Super()
 	fmt.Println(goku.Power)
 }
