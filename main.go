@@ -1,14 +1,18 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
-func main() {
-	power := getPower()
-	fmt.Printf("It's over %d\n", power)
+type Saiyan struct {
+	Name  string
+	Power int
 }
 
-func getPower() int {
-	return 9001
+func (s *Saiyan) Super() {
+	s.Power += 10000
+}
+
+func main() {
+	goku := &Saiyan{"Goku", 9001}
+	goku.Super()
+	fmt.Println(goku.Power)
 }
