@@ -2,23 +2,15 @@ package main
 
 import "fmt"
 
-type Person struct {
-	Name string
-}
-
-func (p *Person) Introduce() {
-	fmt.Printf("Hi, I'm %s\n", p.Name)
-}
-
-type Sayian struct {
-	*Person
-	Power int
-}
-
 func main() {
-	goku := &Sayian{
-		Person: &Person{"Goku"},
-		Power:  9001,
-	}
-	goku.Introduce()
+	scores := []int{1, 2, 3, 4, 5}
+	scores = removeAtIndex(scores, 2)
+	fmt.Println(scores)
+}
+
+func removeAtIndex(source []int, index int) []int {
+	lastIndex := len(source) - 1
+	//swap the last value and the value we want to remove
+	source[index], source[lastIndex] = source[lastIndex], source[index]
+	return source[:lastIndex]
 }
